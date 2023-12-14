@@ -231,7 +231,7 @@ public struct URLEncoding: ParameterEncoding {
         var components: [(String, String)] = []
 
         for key in parameters.keys.sorted(by: <) {
-            let value = parameters[key]!
+            let value: Any = parameters[key]!
             components += queryComponents(fromKey: key, value: value)
         }
         return components.map { "\($0)=\($1)" }.joined(separator: "&")
