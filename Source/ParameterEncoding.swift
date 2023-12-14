@@ -212,6 +212,8 @@ public struct URLEncoding: ParameterEncoding {
             }
         case let bool as Bool:
             components.append((escape(key), escape(boolEncoding.encode(value: bool))))
+        case let string as String:
+            components.append((escape(key), escape(string)))
         default:
             components.append((escape(key), escape("\(value)")))
         }
