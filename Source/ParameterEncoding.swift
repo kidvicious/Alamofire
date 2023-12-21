@@ -206,7 +206,7 @@ public struct URLEncoding: ParameterEncoding {
             }
         case let number as NSNumber:
             if number.isBool {
-                components.append((escape(key), escape(boolEncoding.encode(value: number.boolValue))))
+                components.append((key, number == 1 ? "true" : "false"))
             } else {
                 components.append((escape(key), escape("\(number)")))
             }
